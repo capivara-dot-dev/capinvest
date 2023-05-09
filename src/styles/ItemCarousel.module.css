@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.ItemCarousel {
+  color: #121212;
+  background-color: #f0f0f0;
+
+  font-size: 18px;
+
+  width: 290px;
+  height: 60px;
+
+  box-sizing: border-box;
+
+  border-width: 0px 1px 0px 1px;
+  border-style: solid;
+  border-color: #0000007a;
+
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.StockName {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.StockPoints {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.StockVar {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.StockUp {
+  color: #0dab09;
+}
+
+.StockDown {
+  color: #e31b1b;
+}
