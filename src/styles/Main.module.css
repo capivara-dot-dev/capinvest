@@ -1,0 +1,14 @@
+.Main {
+  margin: auto;
+  width: 1440px;
+
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 950px 200px 200px;
+  grid-template-areas:
+    'graph graph'
+    'relevantFacts news'
+    'relevantFacts twitter';
+}

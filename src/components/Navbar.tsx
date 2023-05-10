@@ -4,7 +4,7 @@ import LinksNav from './LinksNav';
 const Navbar: React.FC = () => {
   return (
     <nav className={style.Navbar}>
-      CapiMoney
+      <span className={style.Title}>CapiMoney</span>
       <LinksNav />
     </nav>
   );
