@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.RelevantFacts {
+  grid-area: relevantFacts;
+  position: relative;
+}
+
+.RelevantFactsInside {
+  position: absolute;
+  left: 74.5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 577px;
+  height: 350px;
+  border-radius: 15px;
+
+  background-color: #191919;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.Title {
+  width: 90%;
+  justify-self: flex-start;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.RelevantFact {
+  box-sizing: border-box;
+  color: #221f16;
+
+  width: 526px;
+  height: 120px;
+
+  background-color: #f0f0f0;
+  border-radius: 5px;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  padding-left: 3%;
+}

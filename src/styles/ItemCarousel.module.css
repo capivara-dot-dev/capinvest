@@ -7,7 +7,7 @@
 
   font-size: 18px;
 
-  width: 290px;
+  min-width: 290px;
   height: 60px;
 
   box-sizing: border-box;
@@ -16,7 +16,6 @@
   border-style: solid;
   border-color: #0000007a;
 
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-around;

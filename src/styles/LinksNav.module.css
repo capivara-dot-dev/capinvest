@@ -12,3 +12,7 @@
 .Link {
   margin: 0px 20px;
 }
+
+.Link:hover {
+  color: #d2d2d2;
+}

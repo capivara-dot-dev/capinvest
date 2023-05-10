@@ -1,6 +1,33 @@
 .Carousel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  overflow-x: scroll;
+
   position: relative;
-  display: block;
 
   width: 100%;
+}
+
+.Carousel::-webkit-scrollbar {
+  width: 0px;
+}
+
+.Carousel::-webkit-scrollbar-thumb {
+  background-color: #cccccc37;
+  width: 0px;
+  height: 4px;
+  border-radius: 5px;
+}
+
+.Carousel::-webkit-scrollbar-thumb:hover {
+  background-color: #636363a2;
+  height: 4px;
+}
+
+@media (min-width: 2900px) {
+  .Carousel {
+    justify-content: center;
+  }
 }
