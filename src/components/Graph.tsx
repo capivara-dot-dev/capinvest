@@ -59,7 +59,7 @@ const SimpleLineChart: React.FC<Graph> = ({ data }) => {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke="#DEDCDE" />
+        <CartesianGrid stroke="#141414" />
         <XAxis dataKey="date" stroke="#DEDCDE" />
         <YAxis yAxisId="left" stroke="#DEDCDE" />
         <YAxis yAxisId="right" orientation="right" stroke="#DEDCDE" />

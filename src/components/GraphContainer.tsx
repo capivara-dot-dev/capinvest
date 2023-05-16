@@ -96,24 +96,26 @@ function all() {
 const GraphContainer: React.FC = () => {
   const data = preProcessing();
   return (
-    <div className={style.GraphContainer}>
-      <span className={style.Title}>Gráfico em Tempo Real</span>
-      <div className={style.aux} id="aux">
-        <Graph data={data} />
-      </div>
-      <div className={style.Forms}>
-        <button onClick={week} className="week">
-          Uma Semana
-        </button>
-        <button onClick={month} className="month">
-          Um mês
-        </button>
-        <button onClick={year} className="year">
-          Um Ano
-        </button>
-        <button onClick={all} id={style.Active} className="all">
-          Todos
-        </button>
+    <div className={style.Graph}>
+      <div className={style.GraphContainer}>
+        <span className={style.Title}>Gráfico em Tempo Real</span>
+        <div className={style.aux} id="aux">
+          <Graph data={data} />
+        </div>
+        <div className={style.Forms}>
+          <button onClick={week} className="week">
+            1S
+          </button>
+          <button onClick={month} className="month">
+            1M
+          </button>
+          <button onClick={year} className="year">
+            1A
+          </button>
+          <button onClick={all} id={style.Active} className="all">
+            Todos
+          </button>
+        </div>
       </div>
     </div>
   );

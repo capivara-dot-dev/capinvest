@@ -1,14 +1,31 @@
 import style from '../styles/Twitter.module.css';
+import imgDown from '../media/Down.png';
+import imgUp from '../media/Up.png';
+import Image from 'next/image';
 
 const Twitter: React.FC = () => {
   return (
     <div className={style.Twitter}>
       <div className={style.TwitterInside}>
-        <span className={style.Title}>Twitter</span>
         <div className={style.Classifications}>
-          <span className={style.Positive}>+1.03%</span>
-          <span className={style.Neutral}>~1.03%</span>
-          <span className={style.Negative}>-1.03%</span>
+          <div className={style.TwitterItem}>
+            <span className={style.Title}>Twitter</span>
+            <span className={style.Positive}>
+              <Image src={imgUp} alt="up-img" className={style.Img} />
+              1.03%
+            </span>
+          </div>
+          <div className={style.TwitterItem}>
+            <span className={style.Title}>Twitter</span>
+            <span className={style.Neutral}>~ 1.03%</span>
+          </div>
+          <div className={style.TwitterItem}>
+            <span className={style.Title}>Twitter</span>
+            <span className={style.Negative}>
+              <Image src={imgDown} alt="down-img" className={style.Img} />
+              1.03%
+            </span>
+          </div>
         </div>
       </div>
     </div>
