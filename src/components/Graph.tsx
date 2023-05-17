@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {
+  ComposedChart,
   LineChart,
   Line,
   XAxis,
@@ -11,8 +12,8 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Scatter,
 } from 'recharts';
-import { isNullOrUndefined } from 'util';
 
 interface Graph {
   data: any;
@@ -117,8 +118,8 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           >
             <p className="label">{`Data: ${label}`}</p>
             <p className="desc">
-              {`Valor de fechamento: `}
-              <span style={{ color: '#FF2923' }}>{`${payload[0].value}`}</span>
+              {`Volume negociado: `}
+              <span style={{ color: '#1FCB4F' }}>{`${payload[0].value}`}</span>
             </p>
           </div>
         );
@@ -130,7 +131,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={data}>
+      <ComposedChart data={data}>
         <CartesianGrid stroke="#141414" />
         <XAxis
           dataKey="date"
@@ -143,7 +144,14 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
         <YAxis yAxisId="right" orientation="right" stroke="#DEDCDE" hide={true} />
         <Tooltip content={CustomTooltip} />
         <Legend />
-        <Line yAxisId="left" type="monotone" dataKey="volume" stroke="#1FCB4F" dot={false} />
+        <Line
+          yAxisId="left"
+          type="monotone"
+          dataKey="volume"
+          stroke="#1FCB4F"
+          dot={false}
+          name="Volume"
+        />
         <Line
           yAxisId="right"
           type="monotone"
@@ -151,6 +159,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           stroke="#FF2923"
           dot={false}
           hide={hideTwitter}
+          name="Fechamento"
         />
         <Line
           yAxisId="right"
@@ -159,8 +168,10 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           stroke="#109EF5"
           dot={false}
           hide={hideNews}
+          name="Maior Alta"
         />
-      </LineChart>
+        <Scatter yAxisId="left" fill="#F0DD13" dataKey="relevantFact" name="Fato Relevante" />
+      </ComposedChart>
     </ResponsiveContainer>
   );
 };
