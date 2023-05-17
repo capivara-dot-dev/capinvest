@@ -24,33 +24,47 @@
 }
 
 .Title {
+  box-sizing: border-box;
+  padding-top: 5%;
   width: 90%;
-  justify-self: flex-start;
+  height: 25%;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .RelevantFact {
   box-sizing: border-box;
-  color: #221f16;
+  color: #f0f0f0;
 
   width: 100%;
-  height: 120px;
+  height: 75%;
 
-  background-color: #f0f0f0;
   border-radius: 5px;
 
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 14px;
 
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  padding-left: 3%;
+.FactTitle {
+  width: 90%;
+  height: 30%;
+}
+
+.FactDate {
+  width: 90%;
+  height: 30%;
+}
+
+.FactDescription {
+  width: 90%;
+  height: 40%;
 }

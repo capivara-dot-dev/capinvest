@@ -13,7 +13,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -28,32 +28,97 @@
   font-weight: 700;
   font-size: 24px;
 
-  width: 90%;
+  width: 89.4%;
   color: #ffffff;
 }
 
 .Forms {
-  width: 90%;
+  width: 89.4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Forms .Buttons {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.Forms .CheckBoxes {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.Forms .CheckBox {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+.CheckBox label {
+  margin-left: 11px;
+}
+
+.CheckBox input {
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 22.35px;
+  width: 22.35px;
+  border-radius: 50%;
+  border: 3px solid #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+.CheckBox input:checked {
+  background-color: #000000;
 }
 
 .Forms button {
+  box-sizing: border-box;
+
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  margin-right: 1%;
-  padding: 10px 15px;
-  border-radius: 10px;
+
+  margin-right: 3%;
+
+  color: #000000;
+
+  padding: 6px 17px;
+  border-radius: 5px;
+
+  box-shadow: none;
+  border: none;
+}
+
+.Forms .CheckBoxes label {
+}
+
+.Forms .CheckBoxes input {
 }
 
 .aux {
-  width: 90%;
+  width: 89.4%;
   height: 70%;
 }
 
 #Active {
   background-color: #121212;
-  box-shadow: none;
   color: #f0f0f0;
 }
 

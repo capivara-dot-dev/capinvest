@@ -17,7 +17,7 @@ interface Graph {
   data: any;
 }
 
-const Graph: React.FC<Graph> = ({ data }) => {
+const GraphTwitter: React.FC<Graph> = ({ data }) => {
   // Customização do ToolTip
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -66,10 +66,9 @@ const Graph: React.FC<Graph> = ({ data }) => {
         <Legend />
         <Line yAxisId="left" type="monotone" dataKey="volume" stroke="#1FCB4F" dot={false} />
         <Line yAxisId="right" type="monotone" dataKey="close" stroke="#FF2923" dot={false} />
-        <Line yAxisId="right" type="monotone" dataKey="high" stroke="#109EF5" dot={false} />
       </LineChart>
     </ResponsiveContainer>
   );
 };
 
-export default Graph;
+export default GraphTwitter;
