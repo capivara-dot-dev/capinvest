@@ -4,73 +4,34 @@ import Graph from './Graph';
 import style from '../styles/GraphContainer.module.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import dataHistorical from '../app/data/historicalData.json';
 
-let data = [
-  {
-    name: '1 Jan',
-    sentiment: 0.9,
-    Ibovespa: 2400,
-    amt: 2400,
-  },
-  {
-    name: '1 Fev',
-    sentiment: 0.1,
-    Ibovespa: 1398,
-    amt: 2210,
-  },
-  {
-    name: '1 Mar',
-    sentiment: 0.5,
-    Ibovespa: 9800,
-    amt: 2290,
-  },
-  {
-    name: '1 Abr',
-    sentiment: 0.4,
-    Ibovespa: 3908,
-    amt: 2000,
-  },
-  {
-    name: '1 Mai',
-    sentiment: 0.8,
-    Ibovespa: 4800,
-    amt: 2181,
-  },
-  {
-    name: '1 Jun',
-    sentiment: 0.1,
-    Ibovespa: 3800,
-    amt: 2500,
-  },
-  {
-    name: '1 Jul',
-    sentiment: 0.4,
-    Ibovespa: 4300,
-    amt: 2100,
-  },
-];
-
-function day() {
-  data = [
-    {
-      name: '1 Jan',
-      sentiment: 0.9,
-      Ibovespa: 2400,
-      amt: 2400,
-    },
-    {
-      name: '1 Fev',
-      sentiment: 0.1,
-      Ibovespa: 1398,
-      amt: 2210,
-    },
-    {
-      name: '1 Mar',
-      sentiment: 0.5,
-      Ibovespa: 9800,
-      amt: 2290,
-    },
+function preProcessing() {
+  const month = [
+    'Jan',
+    'Fev',
+    'Mar',
+    'Abr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Set',
+    'Out',
+    'Nov',
+    'Dez',
   ];
+  const modifiedData = JSON.parse(JSON.stringify(dataHistorical));
+  for (let i = 0; i < modifiedData.length; i++) {
+    const numberMonth = Number(modifiedData[i].date.substring(5, 7)) - 1;
+    modifiedData[i].date = `${modifiedData[i].date.substring(8, 10)} ${
+      month[numberMonth]
+    } ${modifiedData[i].date.substring(2, 4)}`;
+  }
+  return modifiedData;
+}
+function week() {
+  const data = preProcessing().slice(-7); // Escolhe apenas os últimos 7 dados
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
@@ -78,38 +39,17 @@ function day() {
     ReactDOM.render(newGraph, aux);
     const active = document.getElementById(style.Active);
     active?.setAttribute('id', '');
-    const button = document.getElementsByClassName('day')[0];
+    const button = document.getElementsByClassName('week')[0];
     button.setAttribute('id', style.Active);
   }
 }
 
 function month() {
-  data = [
-    {
-      name: '1 Jan',
-      sentiment: 0.9,
-      Ibovespa: 2400,
-      amt: 2400,
-    },
-    {
-      name: '1 Fev',
-      sentiment: 0.1,
-      Ibovespa: 1398,
-      amt: 2210,
-    },
-    {
-      name: '1 Mar',
-      sentiment: 0.5,
-      Ibovespa: 9800,
-      amt: 2290,
-    },
-    {
-      name: '1 Abr',
-      sentiment: 0.4,
-      Ibovespa: 3908,
-      amt: 2000,
-    },
-  ];
+  const dataNotProcessed = preProcessing().slice(-30);
+  const lastDate = preProcessing().slice(-1);
+  const data = dataNotProcessed.filter(
+    (item: any) => item.date.substring(3, 6) == lastDate[0].date.substring(3, 6)
+  ); // Escolhe apenas os dados que tem são do mesmo mês da última medição
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
@@ -123,38 +63,11 @@ function month() {
 }
 
 function year() {
-  data = [
-    {
-      name: '1 Jan',
-      sentiment: 0.9,
-      Ibovespa: 2400,
-      amt: 2400,
-    },
-    {
-      name: '1 Fev',
-      sentiment: 0.1,
-      Ibovespa: 1398,
-      amt: 2210,
-    },
-    {
-      name: '1 Mar',
-      sentiment: 0.5,
-      Ibovespa: 9800,
-      amt: 2290,
-    },
-    {
-      name: '1 Abr',
-      sentiment: 0.4,
-      Ibovespa: 3908,
-      amt: 2000,
-    },
-    {
-      name: '1 Mai',
-      sentiment: 0.8,
-      Ibovespa: 4800,
-      amt: 2181,
-    },
-  ];
+  const dataNotProcessed = preProcessing().slice(-365);
+  const lastDate = preProcessing().slice(-1);
+  const data = dataNotProcessed.filter(
+    (item: any) => item.date.slice(-2) == lastDate[0].date.slice(-2)
+  ); // Escolhe apenas os dados que tem são do mesmo ano da última medição
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
@@ -168,50 +81,7 @@ function year() {
 }
 
 function all() {
-  data = [
-    {
-      name: '1 Jan',
-      sentiment: 0.9,
-      Ibovespa: 2400,
-      amt: 2400,
-    },
-    {
-      name: '1 Fev',
-      sentiment: 0.1,
-      Ibovespa: 1398,
-      amt: 2210,
-    },
-    {
-      name: '1 Mar',
-      sentiment: 0.5,
-      Ibovespa: 9800,
-      amt: 2290,
-    },
-    {
-      name: '1 Abr',
-      sentiment: 0.4,
-      Ibovespa: 3908,
-      amt: 2000,
-    },
-    {
-      name: '1 Mai',
-      sentiment: 0.8,
-      Ibovespa: 4800,
-      amt: 2181,
-    },
-    {
-      name: '1 Jun',
-      sentiment: 0.1,
-      Ibovespa: 3800,
-      amt: 2500,
-    },
-    {
-      name: '1 Jul',
-      sentiment: 0.4,
-      Ibovespa: 4300,
-      amt: 2100,
-    },
-  ];
+  const data = preProcessing(); // Escolhe todos os dados
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
@@ -224,25 +94,28 @@ function all() {
   }
 }
 const GraphContainer: React.FC = () => {
+  const data = preProcessing();
   return (
-    <div className={style.GraphContainer}>
-      <span className={style.Title}>Gráfico em Tempo Real</span>
-      <div className={style.aux} id="aux">
-        <Graph data={data} />
-      </div>
-      <div className={style.Forms}>
-        <button onClick={day} id={style.Active} className="day">
-          1D
-        </button>
-        <button onClick={month} className="month">
-          1M
-        </button>
-        <button onClick={year} className="year">
-          1A
-        </button>
-        <button onClick={all} className="all">
-          Todos
-        </button>
+    <div className={style.Graph}>
+      <div className={style.GraphContainer}>
+        <span className={style.Title}>Gráfico em Tempo Real</span>
+        <div className={style.aux} id="aux">
+          <Graph data={data} />
+        </div>
+        <div className={style.Forms}>
+          <button onClick={week} className="week">
+            1S
+          </button>
+          <button onClick={month} className="month">
+            1M
+          </button>
+          <button onClick={year} className="year">
+            1A
+          </button>
+          <button onClick={all} id={style.Active} className="all">
+            Todos
+          </button>
+        </div>
       </div>
     </div>
   );
