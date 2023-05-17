@@ -16,6 +16,7 @@ import {
 interface Graph {
   data: any;
 }
+
 const SimpleLineChart: React.FC<Graph> = ({ data }) => {
   // Customização do ToolTip
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -60,13 +61,13 @@ const SimpleLineChart: React.FC<Graph> = ({ data }) => {
         }}
       >
         <CartesianGrid stroke="#141414" />
-        <XAxis dataKey="date" stroke="#DEDCDE" />
-        <YAxis yAxisId="left" stroke="#DEDCDE" />
-        <YAxis yAxisId="right" orientation="right" stroke="#DEDCDE" />
+        <XAxis dataKey="date" stroke="#DEDCDE" tickLine={false} tickSize={10} tickCount={2} />
+        <YAxis yAxisId="left" stroke="#DEDCDE" hide={true} />
+        <YAxis yAxisId="right" orientation="right" stroke="#DEDCDE" hide={true} />
         <Tooltip content={CustomTooltip} />
         <Legend />
-        <Line yAxisId="left" type="monotone" dataKey="close" stroke="#FF2923" />
-        <Line yAxisId="right" type="monotone" dataKey="volume" stroke="#44F55C" />
+        <Line yAxisId="left" type="monotone" dataKey="close" stroke="#FF2923" dot={false} />
+        <Line yAxisId="right" type="monotone" dataKey="volume" stroke="#44F55C" dot={false} />
       </LineChart>
     </ResponsiveContainer>
   );
