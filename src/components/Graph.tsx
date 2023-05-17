@@ -12,38 +12,117 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { isNullOrUndefined } from 'util';
 
 interface Graph {
   data: any;
+  hideTwitter: boolean;
+  hideNews: boolean;
 }
 
-const Graph: React.FC<Graph> = ({ data }) => {
+const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
   // Customização do ToolTip
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
-      return (
-        <div
-          className="custom-tooltip"
-          style={{
-            backgroundColor: '#121212',
-            padding: '10%',
-            width: '100%',
-            borderRadius: '10px',
-            fontFamily: 'sans-serif',
-            fontSize: '18px',
-          }}
-        >
-          <p className="label">{`Data: ${label}`}</p>
-          <p className="desc">
-            {`Volume negociado: `}
-            <span style={{ color: '#44F55C' }}>{`${payload[1].value}`}</span>
-          </p>
-          <p className="desc">
-            {`Valor de fechamento: `}
-            <span style={{ color: '#FF2923' }}>{`${payload[0].value}`}</span>
-          </p>
-        </div>
-      );
+      if (payload.length > 2) {
+        return (
+          <div
+            className="custom-tooltip"
+            style={{
+              backgroundColor: '#121212',
+              padding: '10%',
+              width: '100%',
+              borderRadius: '10px',
+              fontFamily: 'sans-serif',
+              fontSize: '18px',
+            }}
+          >
+            <p className="label">{`Data: ${label}`}</p>
+            <p className="desc">
+              {`Volume negociado: `}
+              <span style={{ color: '#1FCB4F' }}>{`${payload[0].value}`}</span>
+            </p>
+            <p className="desc">
+              {`Valor de fechamento: `}
+              <span style={{ color: '#FF2923' }}>{`${payload[1].value}`}</span>
+            </p>
+            <p className="desc">
+              {`Maior Alta: `}
+              <span style={{ color: '#109EF5' }}>{`${payload[2].value}`}</span>
+            </p>
+          </div>
+        );
+      } else if (payload.length > 1) {
+        if (payload[1].dataKey == 'close') {
+          return (
+            <div
+              className="custom-tooltip"
+              style={{
+                backgroundColor: '#121212',
+                padding: '10%',
+                width: '100%',
+                borderRadius: '10px',
+                fontFamily: 'sans-serif',
+                fontSize: '18px',
+              }}
+            >
+              <p className="label">{`Data: ${label}`}</p>
+              <p className="desc">
+                {`Volume negociado: `}
+                <span style={{ color: '#1FCB4F' }}>{`${payload[0].value}`}</span>
+              </p>
+              <p className="desc">
+                {`Valor de fechamento: `}
+                <span style={{ color: '#FF2923' }}>{`${payload[1].value}`}</span>
+              </p>
+            </div>
+          );
+        } else {
+          return (
+            <div
+              className="custom-tooltip"
+              style={{
+                backgroundColor: '#121212',
+                padding: '10%',
+                width: '100%',
+                borderRadius: '10px',
+                fontFamily: 'sans-serif',
+                fontSize: '18px',
+              }}
+            >
+              <p className="label">{`Data: ${label}`}</p>
+              <p className="desc">
+                {`Volume negociado: `}
+                <span style={{ color: '#1FCB4F' }}>{`${payload[0].value}`}</span>
+              </p>
+              <p className="desc">
+                {`Maior Alta: `}
+                <span style={{ color: '#109EF5' }}>{`${payload[1].value}`}</span>
+              </p>
+            </div>
+          );
+        }
+      } else {
+        return (
+          <div
+            className="custom-tooltip"
+            style={{
+              backgroundColor: '#121212',
+              padding: '10%',
+              width: '100%',
+              borderRadius: '10px',
+              fontFamily: 'sans-serif',
+              fontSize: '18px',
+            }}
+          >
+            <p className="label">{`Data: ${label}`}</p>
+            <p className="desc">
+              {`Valor de fechamento: `}
+              <span style={{ color: '#FF2923' }}>{`${payload[0].value}`}</span>
+            </p>
+          </div>
+        );
+      }
     }
 
     return null;
@@ -65,8 +144,22 @@ const Graph: React.FC<Graph> = ({ data }) => {
         <Tooltip content={CustomTooltip} />
         <Legend />
         <Line yAxisId="left" type="monotone" dataKey="volume" stroke="#1FCB4F" dot={false} />
-        <Line yAxisId="right" type="monotone" dataKey="close" stroke="#FF2923" dot={false} />
-        <Line yAxisId="right" type="monotone" dataKey="high" stroke="#109EF5" dot={false} />
+        <Line
+          yAxisId="right"
+          type="monotone"
+          dataKey="close"
+          stroke="#FF2923"
+          dot={false}
+          hide={hideTwitter}
+        />
+        <Line
+          yAxisId="right"
+          type="monotone"
+          dataKey="high"
+          stroke="#109EF5"
+          dot={false}
+          hide={hideNews}
+        />
       </LineChart>
     </ResponsiveContainer>
   );

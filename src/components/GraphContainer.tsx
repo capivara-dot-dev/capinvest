@@ -1,13 +1,10 @@
 'use client';
 
 import Graph from './Graph';
-import GraphTwitter from './GraphTwitter';
 import style from '../styles/GraphContainer.module.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import dataHistorical from '../app/data/historicalData.json';
-import GraphNews from './GraphNews';
-import GraphStock from './GraphStock';
 
 function preProcessing() {
   const month = [
@@ -43,13 +40,13 @@ function week() {
     let newGraph = <></>;
     if (checkTwitter !== null && checkNews !== null) {
       if (checkNews.checked && checkTwitter.checked) {
-        newGraph = <Graph data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
       } else if (checkNews.checked) {
-        newGraph = <GraphNews data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
       } else if (checkTwitter.checked) {
-        newGraph = <GraphTwitter data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
       } else {
-        newGraph = <GraphStock data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
       }
     }
     ReactDOM.render(newGraph, aux);
@@ -74,13 +71,13 @@ function month() {
     let newGraph = <></>;
     if (checkTwitter !== null && checkNews !== null) {
       if (checkNews.checked && checkTwitter.checked) {
-        newGraph = <Graph data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
       } else if (checkNews.checked) {
-        newGraph = <GraphNews data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
       } else if (checkTwitter.checked) {
-        newGraph = <GraphTwitter data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
       } else {
-        newGraph = <GraphStock data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
       }
     }
     ReactDOM.render(newGraph, aux);
@@ -105,13 +102,13 @@ function year() {
     let newGraph = <></>;
     if (checkTwitter !== null && checkNews !== null) {
       if (checkNews.checked && checkTwitter.checked) {
-        newGraph = <Graph data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
       } else if (checkNews.checked) {
-        newGraph = <GraphNews data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
       } else if (checkTwitter.checked) {
-        newGraph = <GraphTwitter data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
       } else {
-        newGraph = <GraphStock data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
       }
     }
     ReactDOM.render(newGraph, aux);
@@ -132,13 +129,13 @@ function all() {
     let newGraph = <></>;
     if (checkTwitter !== null && checkNews !== null) {
       if (checkNews.checked && checkTwitter.checked) {
-        newGraph = <Graph data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
       } else if (checkNews.checked) {
-        newGraph = <GraphNews data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
       } else if (checkTwitter.checked) {
-        newGraph = <GraphTwitter data={data} />;
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
       } else {
-        newGraph = <GraphStock data={data} />;
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
       }
     }
     ReactDOM.render(newGraph, aux);
@@ -170,7 +167,7 @@ const GraphContainer: React.FC = () => {
       <div className={style.GraphContainer}>
         <span className={style.Title}>Gráfico em Tempo Real - Título do Gráfico</span>
         <div className={style.aux} id="aux">
-          <Graph data={data} />
+          <Graph data={data} hideTwitter={false} hideNews={false} />
         </div>
         <div className={style.Forms}>
           <div className={style.Buttons}>
