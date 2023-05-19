@@ -46,7 +46,7 @@
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
 
   display: flex;
   align-items: center;
@@ -56,15 +56,16 @@
 
 .FactTitle {
   width: 90%;
-  height: 30%;
+  height: 23%;
+  color: #f0dd13;
 }
 
 .FactDate {
   width: 90%;
-  height: 30%;
+  height: 23%;
 }
 
 .FactDescription {
   width: 90%;
-  height: 40%;
+  height: 54%;
 }
