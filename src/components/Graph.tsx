@@ -292,7 +292,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           hide={hideNews}
           name="Maior Alta"
         />
-        <Scatter yAxisId="left" fill="#F0DD13" dataKey="relevantFact" name="Fato Relevante" />
+        <Scatter yAxisId="right" fill="#F0DD13" dataKey="relevantFact" name="Fato Relevante" />
       </ComposedChart>
     </ResponsiveContainer>
   );
