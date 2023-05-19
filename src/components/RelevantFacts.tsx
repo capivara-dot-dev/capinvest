@@ -6,14 +6,9 @@ const RelevantFacts: React.FC = () => {
       <div className={style.RelevantFactsInside}>
         <span className={style.Title}>Fatos Relevantes</span>
         <div className={style.RelevantFact}>
-          <div>Título</div>
-          <div>Data</div>
-          <div>Descrição</div>
-        </div>
-        <div className={style.RelevantFact}>
-          <div>Título</div>
-          <div>Data</div>
-          <div>Descrição</div>
+          <div className={style.FactTitle}>Título</div>
+          <div className={style.FactDate}>Data</div>
+          <div className={style.FactDescription}>Descrição</div>
         </div>
       </div>
     </div>

@@ -35,7 +35,20 @@ function week() {
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
-    const newGraph = <Graph data={data} />;
+    const checkTwitter = document.getElementById('CheckTwitter') as HTMLInputElement;
+    const checkNews = document.getElementById('CheckNews') as HTMLInputElement;
+    let newGraph = <></>;
+    if (checkTwitter !== null && checkNews !== null) {
+      if (checkNews.checked && checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
+      } else if (checkNews.checked) {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
+      } else if (checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
+      } else {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
+      }
+    }
     ReactDOM.render(newGraph, aux);
     const active = document.getElementById(style.Active);
     active?.setAttribute('id', '');
@@ -53,7 +66,20 @@ function month() {
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
-    const newGraph = <Graph data={data} />;
+    const checkTwitter = document.getElementById('CheckTwitter') as HTMLInputElement;
+    const checkNews = document.getElementById('CheckNews') as HTMLInputElement;
+    let newGraph = <></>;
+    if (checkTwitter !== null && checkNews !== null) {
+      if (checkNews.checked && checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
+      } else if (checkNews.checked) {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
+      } else if (checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
+      } else {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
+      }
+    }
     ReactDOM.render(newGraph, aux);
     const active = document.getElementById(style.Active);
     active?.setAttribute('id', '');
@@ -71,7 +97,20 @@ function year() {
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
-    const newGraph = <Graph data={data} />;
+    const checkTwitter = document.getElementById('CheckTwitter') as HTMLInputElement;
+    const checkNews = document.getElementById('CheckNews') as HTMLInputElement;
+    let newGraph = <></>;
+    if (checkTwitter !== null && checkNews !== null) {
+      if (checkNews.checked && checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
+      } else if (checkNews.checked) {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
+      } else if (checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
+      } else {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
+      }
+    }
     ReactDOM.render(newGraph, aux);
     const active = document.getElementById(style.Active);
     active?.setAttribute('id', '');
@@ -85,7 +124,20 @@ function all() {
   const graph = document.getElementsByClassName('recharts-responsive-container')[0];
   if (graph !== null) {
     const aux = document.getElementById('aux');
-    const newGraph = <Graph data={data} />;
+    const checkTwitter = document.getElementById('CheckTwitter') as HTMLInputElement;
+    const checkNews = document.getElementById('CheckNews') as HTMLInputElement;
+    let newGraph = <></>;
+    if (checkTwitter !== null && checkNews !== null) {
+      if (checkNews.checked && checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={false} />;
+      } else if (checkNews.checked) {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={false} />;
+      } else if (checkTwitter.checked) {
+        newGraph = <Graph data={data} hideTwitter={false} hideNews={true} />;
+      } else {
+        newGraph = <Graph data={data} hideTwitter={true} hideNews={true} />;
+      }
+    }
     ReactDOM.render(newGraph, aux);
     const active = document.getElementById(style.Active);
     active?.setAttribute('id', '');
@@ -93,28 +145,67 @@ function all() {
     button.setAttribute('id', style.Active);
   }
 }
+
+function checkboxFunction() {
+  const active = document.getElementById(style.Active);
+  if (active !== null) {
+    if (active.classList[0] == 'week') {
+      week();
+    } else if (active.classList[0] == 'month') {
+      month();
+    } else if (active.classList[0] == 'year') {
+      year();
+    } else {
+      all();
+    }
+  }
+}
 const GraphContainer: React.FC = () => {
   const data = preProcessing();
   return (
     <div className={style.Graph}>
       <div className={style.GraphContainer}>
-        <span className={style.Title}>Gráfico em Tempo Real</span>
+        <span className={style.Title}>Gráfico em Tempo Real - Título do Gráfico</span>
         <div className={style.aux} id="aux">
-          <Graph data={data} />
+          <Graph data={data} hideTwitter={false} hideNews={false} />
         </div>
         <div className={style.Forms}>
-          <button onClick={week} className="week">
-            1S
-          </button>
-          <button onClick={month} className="month">
-            1M
-          </button>
-          <button onClick={year} className="year">
-            1A
-          </button>
-          <button onClick={all} id={style.Active} className="all">
-            Todos
-          </button>
+          <div className={style.Buttons}>
+            <button onClick={week} className="week">
+              1S
+            </button>
+            <button onClick={month} className="month">
+              1M
+            </button>
+            <button onClick={year} className="year">
+              1A
+            </button>
+            <button onClick={all} id={style.Active} className="all">
+              Todos
+            </button>
+          </div>
+          <div className={style.CheckBoxes}>
+            <div className={style.CheckBox}>
+              <input
+                type="checkbox"
+                name="Twitter"
+                id="CheckTwitter"
+                onChange={checkboxFunction}
+                defaultChecked={true}
+              />
+              <label htmlFor="Twitter">Twitter</label>
+            </div>
+            <div className={style.CheckBox}>
+              <input
+                type="checkbox"
+                name="News"
+                id="CheckNews"
+                onChange={checkboxFunction}
+                defaultChecked={true}
+              />
+              <label htmlFor="Twitter">Notícias</label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
