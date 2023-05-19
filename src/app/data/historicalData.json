@@ -196,7 +196,10 @@
     "low": 110048,
     "close": 116134,
     "adjclose": 116134,
-    "relevantFact": 20982900
+    "relevantFact": 116134,
+    "relevantTitle": "1° Turno das Eleições",
+    "relevantDate": "2 de Outubro de 2022",
+    "relevantDescription": "Nesta data occorreu o primeiro turno das eleições presidenciais e dos governadores. Também aconteceu a eleição de senadores, deputados federais e estaduais."
   },
   {
     "date": "2022-10-03T13:00:00.000Z",
@@ -377,7 +380,10 @@
     "low": 113336,
     "close": 114539,
     "adjclose": 114539,
-    "relevantFact": 14392400
+    "relevantFact": 114539,
+    "relevantTitle": "2° Turno das Eleições",
+    "relevantDate": "30 de Outubro de 2022",
+    "relevantDescription": "No fim de Outubro, ocorreu a o segundo turno das eleções presidenciais e dos governos estaduais. O destaque foi a vitória do candidato Lula sobre o candidato Bolsonaro."
   },
   {
     "date": "2022-10-31T13:00:00.000Z",
@@ -827,7 +833,11 @@
     "open": 110816,
     "low": 110752,
     "close": 111763,
-    "adjclose": 111763
+    "adjclose": 111763,
+    "relevantFact": 111763,
+    "relevantTitle": "Americanas acha rombo de R$ 20 bilhões",
+    "relevantDate": "11 de janeiro de 2023",
+    "relevantDescription": "Na quarta-feira (11), a Americanas comunicou que foram detectadas inconsistências em lançamentos contábeis estimadas em R$ 20 bilhões. Presidente da empresa renunciou."
   },
   {
     "date": "2023-01-12T13:00:00.000Z",
@@ -1314,7 +1324,10 @@
     "low": 101796,
     "close": 103713,
     "adjclose": 103713,
-    "relevantFact": 14901600
+    "relevantFact": 103713,
+    "relevantTitle": "Anúncio do novo arcabouço fiscal",
+    "relevantDate": "30 de março de 2023",
+    "relevantDescription": "Na quinta-feira, dia 30, o ministro da fazenda, Fernando Haddad, anunciava o novo arcabouço fiscal que irá substituir o teto de gastos."
   },
   {
     "date": "2023-03-31T13:00:00.000Z",
