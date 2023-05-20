@@ -5,6 +5,7 @@ import style from '../styles/GraphContainer.module.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import dataHistorical from '../app/data/historicalData.json';
+import dataRelevantFacts from '../app/data/relevantFacts.json';
 
 function preProcessing() {
   const month = [
@@ -22,11 +23,21 @@ function preProcessing() {
     'Dez',
   ];
   const modifiedData = JSON.parse(JSON.stringify(dataHistorical));
+  const dataRelevant = JSON.parse(JSON.stringify(dataRelevantFacts));
   for (let i = 0; i < modifiedData.length; i++) {
     const numberMonth = Number(modifiedData[i].date.substring(5, 7)) - 1;
     modifiedData[i].date = `${modifiedData[i].date.substring(8, 10)} ${
       month[numberMonth]
     } ${modifiedData[i].date.substring(2, 4)}`;
+  }
+  for (let i = 0; i < dataRelevant.length; i++) {
+    for (let j = 0; j < modifiedData.length; j++) {
+      if (modifiedData[j].date == dataRelevant[i].date) {
+        const objaux = { relevantFact: modifiedData[j].close };
+        Object.assign(modifiedData[j], dataRelevant[i], objaux);
+        break;
+      }
+    }
   }
   return modifiedData;
 }
