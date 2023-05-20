@@ -5,6 +5,8 @@ import style from '../styles/GraphContainerPetro.module.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import dataHistorical from '../app/data/historicalData.json';
+import dataRelevantFacts from '../app/data/relevantFactsPetro.json';
+import sentimentalData from '../app/data/sentimentalData.json';
 
 function preProcessingPetro() {
   const monthPetro = [
@@ -22,11 +24,37 @@ function preProcessingPetro() {
     'Dez',
   ];
   const modifiedData = JSON.parse(JSON.stringify(dataHistorical));
+  const dataRelevant = JSON.parse(JSON.stringify(dataRelevantFacts));
+  const sentiData = JSON.parse(JSON.stringify(sentimentalData));
+  for (let i = 0; i < sentiData.data.length; i++) {
+    const numberMonthSent = Number(sentiData.data[i].date.substring(5, 7)) - 1;
+    sentiData.data[i].date = `${sentiData.data[i].date.substring(8, 10)} ${
+      monthPetro[numberMonthSent]
+    } ${sentiData.data[i].date.substring(2, 4)}`;
+  }
   for (let i = 0; i < modifiedData.length; i++) {
     const numberMonthPetro = Number(modifiedData[i].date.substring(5, 7)) - 1;
     modifiedData[i].date = `${modifiedData[i].date.substring(8, 10)} ${
       monthPetro[numberMonthPetro]
     } ${modifiedData[i].date.substring(2, 4)}`;
+  }
+  for (let i = 0; i < dataRelevant.length; i++) {
+    for (let j = 0; j < modifiedData.length; j++) {
+      if (modifiedData[j].date == dataRelevant[i].date) {
+        const objaux = { relevantFact: modifiedData[j].close };
+        Object.assign(modifiedData[j], dataRelevant[i], objaux);
+        break;
+      }
+    }
+  }
+  for (let i = 0; i < sentiData.data.length; i++) {
+    for (let j = 0; j < modifiedData.length; j++) {
+      if (modifiedData[j].date == sentiData.data[i].date) {
+        const objaux = { sentiment: sentiData.data[i].score };
+        Object.assign(modifiedData[j], objaux);
+        break;
+      }
+    }
   }
   return modifiedData;
 }

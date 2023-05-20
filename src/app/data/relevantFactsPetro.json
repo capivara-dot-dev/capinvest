@@ -1,0 +1,32 @@
+[
+  {
+    "date": "02 Out 22",
+    "relevantTitle": "1° Turno das Eleições",
+    "relevantDate": "2 de Outubro de 2022",
+    "relevantDescription": "Nesta data occorreu o primeiro turno das eleições presidenciais e dos governadores. Também aconteceu a eleição de senadores, deputados federais e estaduais."
+  },
+  {
+    "date": "30 Out 22",
+    "relevantTitle": "2° Turno das Eleições",
+    "relevantDate": "30 de Outubro de 2022",
+    "relevantDescription": "No fim de Outubro, ocorreu a o segundo turno das eleções presidenciais e dos governos estaduais. O destaque foi a vitória do candidato Lula sobre o candidato Bolsonaro."
+  },
+  {
+    "date": "08 Jan 23",
+    "relevantTitle": "Invasão ao Congresso Nacional",
+    "relevantDate": "8 de janeiro de 2023",
+    "relevantDescription": "Apoiadores do ex-presidente Bolsonaro invadiram o Congresso, a Suprema Corte e o Palácio Presidencial. Houve quebradeira e boa parte dos protestantes foram presos pela polícia."
+  },
+  {
+    "date": "11 Mai 23",
+    "relevantTitle": "Lucro da Petrobras recua 14,4% no 1º tri, para R$ 38,2 bi",
+    "relevantDate": "11 de maio de 2023",
+    "relevantDescription": "Na quinta-feira, dia 30, o ministro da fazenda, Fernando Haddad, anunciava o novo arcabouço fiscal que irá substituir o teto de gastos."
+  },
+  {
+    "date": "30 Mar 23",
+    "relevantTitle": "Anúncio do novo arcabouço fiscal",
+    "relevantDate": "30 de março de 2023",
+    "relevantDescription": "A Petrobras (PETR4 PETR3) informou na noite desta quinta-feira (11) que o lucro líquido atribuído aos sócios da companhia caiu 14,4% no primeiro trimestre deste ano, no comparativo com o mesmo intervalo do ano passado, para R$ 38,2 bilhões."
+  }
+]
