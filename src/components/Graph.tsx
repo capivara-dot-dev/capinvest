@@ -256,7 +256,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           fontWeight={'bold'}
           minTickGap={60}
         />
-        <YAxis yAxisId="left" stroke="#DEDCDE" hide={true} />
+        <YAxis yAxisId="left" stroke="#DEDCDE" hide={true} domain={[-1, 1]} />
         <YAxis yAxisId="right" orientation="right" stroke="#DEDCDE" hide={true} />
         <Tooltip content={CustomTooltip} />
         <Legend />
@@ -271,7 +271,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
         <Line
           yAxisId="left"
           type="monotone"
-          dataKey="volume"
+          dataKey="sentiment"
           stroke="#1FCB4F"
           dot={false}
           hide={hideNews}
@@ -283,7 +283,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           dataKey="high"
           stroke="#109EF5"
           dot={false}
-          hide={hideTwitter}
+          hide={true}
           name="Sentimento Twitter"
         />
         <Scatter yAxisId="right" fill="#F0DD13" dataKey="relevantFact" name="Fato Relevante" />
