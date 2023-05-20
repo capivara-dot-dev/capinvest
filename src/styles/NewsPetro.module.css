@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.News {
+  grid-area: newsPetro;
+  position: relative;
+}
+
+.NewsInside {
+  position: absolute;
+  right: 10.01%;
+  top: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 511px;
+  height: 143px;
+
+  background-color: #212020;
+  border-radius: 15px;
+
+  color: #f0f0f0;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.NewsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #191919;
+  border-radius: 15px;
+
+  width: 29%;
+  height: 174%;
+}
+
+.Title {
+  width: 80%;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+
+.Positive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #0dab09;
+}
+
+.Neutral {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.Negative {
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #ff0000;
+}
+
+.Classifications {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.Img {
+  margin-right: 5px;
+}

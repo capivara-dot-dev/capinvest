@@ -1,6 +1,6 @@
 'use client';
 // import style from '../styles/Graph.module.css';
-import style from '../styles/RelevantFacts.module.css';
+import style from '../styles/RelevantFactsPetro.module.css';
 
 import React from 'react';
 import {
@@ -22,9 +22,10 @@ interface Graph {
 }
 
 function changeRelevantFact(title: string, date: string, description: string) {
-  const factTitle = document.getElementsByClassName(style.FactTitle)[0];
-  const factDate = document.getElementsByClassName(style.FactDate)[0];
-  const factDescription = document.getElementsByClassName(style.FactDescription)[0];
+  console.log('SIm');
+  const factTitle = document.getElementsByClassName(style.FactTitlePetro)[0];
+  const factDate = document.getElementsByClassName(style.FactDatePetro)[0];
+  const factDescription = document.getElementsByClassName(style.FactDescriptionPetro)[0];
   if (factTitle && factDate && factDescription) {
     factTitle.textContent = title;
     factDate.textContent = date;
