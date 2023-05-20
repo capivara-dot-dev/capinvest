@@ -71,7 +71,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
             </div>
           );
         } else if (payload.length > 2) {
-          if (payload[1].dataKey == 'close') {
+          if (payload[1].dataKey == 'sentiment') {
             return (
               <div
                 className="custom-tooltip"
@@ -170,7 +170,7 @@ const Graph: React.FC<Graph> = ({ data, hideTwitter, hideNews }) => {
           </div>
         );
       } else if (payload.length > 1) {
-        if (payload[1].dataKey == 'volume') {
+        if (payload[1].dataKey == 'sentiment') {
           return (
             <div
               className="custom-tooltip"

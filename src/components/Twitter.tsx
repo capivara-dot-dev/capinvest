@@ -12,18 +12,18 @@ const Twitter: React.FC = () => {
             <span className={style.Title}>Twitter</span>
             <span className={style.Positive}>
               <Image src={imgUp} alt="up-img" className={style.Img} />
-              1.03%
+              45%
             </span>
           </div>
           <div className={style.TwitterItem}>
             <span className={style.Title}>Twitter</span>
-            <span className={style.Neutral}>~ 1.03%</span>
+            <span className={style.Neutral}>~ 34%</span>
           </div>
           <div className={style.TwitterItem}>
             <span className={style.Title}>Twitter</span>
             <span className={style.Negative}>
               <Image src={imgDown} alt="down-img" className={style.Img} />
-              1.03%
+              22%
             </span>
           </div>
         </div>
