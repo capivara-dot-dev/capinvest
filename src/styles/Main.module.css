@@ -1,15 +1,17 @@
 .Main {
   margin: auto;
   width: 1440px;
-  height: 100vh;
+  min-height: 100vh;
 
   color: white;
 
   display: grid;
-  grid-template-columns: 460px 1fr;
-  grid-template-rows: 226px 171px 340px;
+  grid-template-columns: 230px 230px 440px 1fr;
+  grid-template-rows: 226px 171px 340px 329px 171px;
   grid-template-areas:
-    'news graph'
-    'twitter graph'
-    'relevantFacts graph';
+    'news news graph graph'
+    'twitter twitter graph graph'
+    'relevantFacts relevantFacts graph graph'
+    'graphPetro graphPetro graphPetro relevantFactsPetro'
+    'graphPetro graphPetro graphPetro newsPetro';
 }

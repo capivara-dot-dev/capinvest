@@ -165,7 +165,7 @@ const GraphContainer: React.FC = () => {
   return (
     <div className={style.Graph}>
       <div className={style.GraphContainer}>
-        <span className={style.Title}>Gráfico em Tempo Real - Título do Gráfico</span>
+        <span className={style.Title}>Sentimento Ibovepa</span>
         <div className={style.aux} id="aux">
           <Graph data={data} hideTwitter={false} hideNews={false} />
         </div>

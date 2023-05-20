@@ -22,7 +22,7 @@
 }
 
 .StockName {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 900;
 }
@@ -34,7 +34,7 @@
 }
 
 .StockVar {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
 }

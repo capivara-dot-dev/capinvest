@@ -4,7 +4,7 @@ import style from '../styles/LinksNav.module.css';
 const LinksNav: React.FC = () => {
   return (
     <div className={style.LinksNav}>
-      <Link href="#" className={style.Link}>
+      <Link href="/sim" className={style.Link}>
         Quem Somos
       </Link>
       <Link href="#" className={style.Link}>

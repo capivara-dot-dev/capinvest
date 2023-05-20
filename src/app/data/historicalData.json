@@ -809,6 +809,19 @@
     "adjclose": 108836
   },
   {
+    "date": "2023-01-08T13:00:00.000Z",
+    "high": 109938,
+    "volume": 12047300,
+    "open": 108964,
+    "low": 108134,
+    "close": 109227,
+    "adjclose": 109227,
+    "relevantFact": 109227,
+    "relevantTitle": "Invasão ao Congresso Nacional",
+    "relevantDate": "8 de janeiro de 2023",
+    "relevantDescription": "Apoiadores do ex-presidente Bolsonaro invadiram o Congresso, a Suprema Corte e o Palácio Presidencial. Houve quebradeira e boa parte dos protestantes foram presos pela polícia."
+  },
+  {
     "date": "2023-01-09T13:00:00.000Z",
     "high": 109938,
     "volume": 12047300,
